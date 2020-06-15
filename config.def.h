@@ -93,7 +93,7 @@ static const char *updatexrandr[]  = { "external_on", NULL };
 static void resettag();
 
 #include "tagmovement.c"
-#include "movestack.c"
+#include "push.c"
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -109,8 +109,8 @@ static Key keys[] = {
     //    { MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-    { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
-    { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_j,      pushdown,       {0} },
+    { MODKEY|ShiftMask,             XK_k,      pushup,         {0} },
     { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
     { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
     { MODKEY|ShiftMask,                       XK_r,      resettag,       {0} },
