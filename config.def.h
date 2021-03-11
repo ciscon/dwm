@@ -8,7 +8,7 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Roboto:size=12" };
 static const char dmenufont[]       = "Roboto:size=12";
 static const char col_gray1[]       = "#222222";
@@ -107,21 +107,19 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_z,      spawn,          {.v = xtrlock } },
     { MODKEY|ShiftMask,             XK_r,      spawn,          {.v = updatexrandr } },
     { MODKEY,                       XK_s,      spawn,          {.v = screenshotcmd} },
-    //    { MODKEY,                       XK_b,      togglebar,      {0} },
-    //{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-    //{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+    //{ MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
     { MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
-    //{ MODKEY|ShiftMask,             XK_j,      focusstackhid,  {.i = +1 } },
-    //{ MODKEY|ShiftMask,             XK_k,      focusstackhid,  {.i = -1 } },
-    //{ MODKEY,                       XK_s,      show,           {0} },
-    //{ MODKEY,                       XK_h,      hide,           {0} },
+    { MODKEY|ControlMask,           XK_j,      focusstackhid,  {.i = +1 } },
+    { MODKEY|ControlMask,           XK_k,      focusstackhid,  {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_n,      show,           {0} },
+    { MODKEY,                       XK_n,      hide,           {0} },
     { MODKEY|ShiftMask,             XK_j,      pushdown,       {0} },
     { MODKEY|ShiftMask,             XK_k,      pushup,         {0} },
     { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
     { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-    { MODKEY|ShiftMask,                       XK_r,      resettag,       {0} },
-    { MODKEY|ControlMask,                       XK_r,      resettag,       {0} },
+    { MODKEY|ShiftMask,             XK_r,      resettag,       {0} },
+    { MODKEY|ControlMask,                      XK_r,      resettag,       {0} },
     { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
     { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
     { MODKEY|ShiftMask,             XK_h,      x_prevtag,      {0} },
@@ -135,9 +133,9 @@ static Key keys[] = {
     { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
     { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
     { MODKEY,                       XK_b,      setlayout,      {.v = &layouts[3]} },
-    { MODKEY|ShiftMask,				XK_t,      setlayout,      {.v = &layouts[4]} },
-    //    { MODKEY,                       XK_space,  setlayout,      {0} },
-    { MODKEY|ControlMask,             XK_space,  togglefloating, {0} },
+    { MODKEY|ShiftMask,			      	XK_t,      setlayout,      {.v = &layouts[4]} },
+    //{ MODKEY,                       XK_space,  setlayout,      {0} },
+    { MODKEY|ControlMask,           XK_space,  togglefloating, {0} },
     { MODKEY,                       XK_space,  cyclelayout,    {.i = +1 } },
     { MODKEY|ShiftMask,             XK_space,  cyclelayout,    {.i = -1 } },
     { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
