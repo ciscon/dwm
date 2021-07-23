@@ -40,7 +40,8 @@ static const Rule rules[] = {
     { "Hexchat",  NULL,       NULL,      1<<7,       0,           -1},
     { "Deadbeef",  NULL,       NULL,       1<<8,       0,           -1},
     { "Slack",  NULL,       NULL,       1<<5,       0,           -1},
-
+    { "google-chat-electron",  NULL,       NULL,       1<<5,       0,           -1},
+    { "google-chat-linux",  NULL,       NULL,       1<<5,       0,           -1},
 };
 
 /* layout(s) */
