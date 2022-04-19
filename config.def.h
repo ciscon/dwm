@@ -98,9 +98,6 @@ static const char *xtrlock[]  = { "xtrlock", NULL };
 static const char *screenshotcmd[]  = { "screenshot", NULL };
 static const char *updatexrandr[]  = { "external_on", NULL };
 
-/* custom functions declarations */
-static void resettag();
-
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -119,8 +116,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_k,      pushup,         {0} },
     { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
     { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-    { MODKEY|ShiftMask,                       XK_r,      resettag,       {0} },
-    { MODKEY|ControlMask,                       XK_r,      resettag,       {0} },
+    { MODKEY|ShiftMask,             XK_r,      resetlayout,    {0} },
     { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
     { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
     { MODKEY|ShiftMask,             XK_h,      x_prevtag,      {0} },
@@ -174,10 +170,3 @@ static Button buttons[] = {
     { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
     { ClkClientWin,         MODKEY,         Button1,        moveorplace,    {.i = 1} },
 };
-
-void
-resettag() {
-    incnmaster(&(Arg){.i=0});
-    setlayout(&(Arg){.v = &layouts[0]});
-    setmfact(&(Arg){.f=1.0+mfact});
-}
