@@ -61,7 +61,7 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 //custom tag movement
 #include "tagmovement.c"
 //move tiles with mouse
-//#include "tilemovemouse.c"
+#include "tilemovemouse.c"
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
@@ -172,7 +172,9 @@ static Button buttons[] = {
     { ClkTagBar,            0,              Button3,        toggleview,     {0} },
     { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
     { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-    { ClkClientWin,         MODKEY,         Button1,        moveorplace,    {.i = 1} },
+    //{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+    { ClkClientWin,   MODKEY,         Button1,    tilemovemouse,  {0} },
+
 };
 
 void

@@ -226,7 +226,6 @@ static void pushup(const Arg *arg);
 static void quit(const Arg *arg);
 static Client *recttoclient(int x, int y, int w, int h);
 static Monitor *recttomon(int x, int y, int w, int h);
-static void resetlayout(const Arg *arg);
 static void removesystrayicon(Client *i);
 static void resize(Client *c, int x, int y, int w, int h, int interact);
 static void resizebarwin(Monitor *m);
@@ -1693,16 +1692,6 @@ removesystrayicon(Client *i)
 }
 
 void
-resetlayout(const Arg *arg)
-{
-	Arg default_layout = {.v = &layouts[0]};
-	Arg default_mfact = {.f = mfact + 1};
-
-	setlayout(&default_layout);
-	setmfact(&default_mfact);
-}
-
-void
 resize(Client *c, int x, int y, int w, int h, int interact)
 {
 	if (applysizehints(c, &x, &y, &w, &h, interact))
@@ -1731,9 +1720,6 @@ resizeclient(Client *c, int x, int y, int w, int h)
 
 	if (c->beingmoved)
 		return;
-
-	if ((nexttiled(c->mon->clients) == c) && !(nexttiled(c->next)))
-		resetlayout(NULL);
 
 	wc.border_width = c->bw;
 
