@@ -175,9 +175,3 @@ static Button buttons[] = {
     { ClkClientWin,         MODKEY,         Button1,        moveorplace,    {.i = 1} },
 };
 
-void
-resettag() {
-    incnmaster(&(Arg){.i=0});
-    setlayout(&(Arg){.v = &layouts[0]});
-    setmfact(&(Arg){.f=1.0+mfact});
-}
