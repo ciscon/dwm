@@ -43,7 +43,8 @@ static const Rule rules[] = {
     { "Deadbeef",  NULL,       NULL,       1<<8,       0,           -1},
     { "Slack",  NULL,       NULL,       1<<5,       0,           -1},
     { "google-chat-electron",  NULL,       NULL,       1<<5,       0,           -1},
-    { "google-chat-linux",  NULL,       NULL,       1<<5,       0,           -1}
+    { "google-chat-linux",  NULL,       NULL,       1<<5,       0,           -1},
+    { "Steam",  NULL,       NULL,       1<<5,       0,           -1}
 
 };
 
