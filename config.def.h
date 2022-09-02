@@ -21,7 +21,7 @@ static const char col_red[]         = "#ff0000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_red },
 };
 static const int gappx              = 3;        /* gapsize */
 
@@ -41,6 +41,7 @@ static const Rule rules[] = {
     { "discord",  NULL,       NULL,       1<<6,       0,           -1},
     { "Hexchat",  NULL,       NULL,      1<<7,       0,           -1},
     { "Deadbeef",  NULL,       NULL,       1<<8,       0,           -1},
+    { "Audacious",  NULL,       NULL,       1<<8,       0,           -1},
     { "Slack",  NULL,       NULL,       1<<5,       0,           -1},
     { "google-chat-electron",  NULL,       NULL,       1<<5,       0,           -1},
     { "google-chat-linux",  NULL,       NULL,       1<<5,       0,           -1},
