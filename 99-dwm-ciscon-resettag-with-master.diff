@@ -28,6 +28,7 @@ index 713aba9..29f08be 100644
 +	incnmaster(&(Arg){.i=0});
 +	setlayout(&(Arg){.v = &layouts[0]});
 +	setmfact(&(Arg){.f=1.0+mfact});
++   togglefloating(&(Arg){.i=0});
 +}
 +
  #ifdef XINERAMA
