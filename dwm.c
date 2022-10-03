@@ -1151,7 +1151,6 @@ resettag() {
 	incnmaster(&(Arg){.i=0});
 	setlayout(&(Arg){.v = &layouts[0]});
 	setmfact(&(Arg){.f=1.0+mfact});
-	togglefloating(&(Arg){.i=0});
 }
 
 #ifdef XINERAMA
