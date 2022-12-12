@@ -2501,9 +2501,9 @@ updatesystrayicongeom(Client *i, int w, int h)
 		/* force icons into the systray dimensions if they don't want to */
 		if (i->h > bh) {
 			if (i->w == i->h)
-				i->w = bh;
+				i->w = bh -1;
 			else
-				i->w = (int) ((float)bh * ((float)i->w / (float)i->h));
+				i->w = (int) ((float)bh * ((float)i->w / (float)i->h)) - 1;
 			i->h = bh;
 		}
 	}
