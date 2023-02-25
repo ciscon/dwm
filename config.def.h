@@ -85,6 +85,7 @@ static const char *screenshotcmd[]  = { "screenshot", NULL };
 
 
 #include "tagmovement.c"
+#include "movestack.c"
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -114,9 +115,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_j,      pushdown,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      pushup,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period, tagmon,
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_h,      x_prevtag,      {0} },
 	{ MODKEY|ShiftMask,             XK_l,      x_nexttag,      {0} },
 	{ MODKEY|ControlMask,           XK_h,      x_prevtag_all,  {0} },
