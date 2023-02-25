@@ -68,6 +68,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+#include "tagmovement.c"
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -93,9 +95,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_period, tagmon,
 	{ MODKEY|ShiftMask,             XK_j,      pushdown,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      pushup,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_k,      pushup,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_h,      x_prevtag,      {0} },
+	{ MODKEY|ShiftMask,             XK_l,      x_nexttag,      {0} },
+	{ MODKEY|ControlMask,           XK_h,      x_prevtag_all,  {0} },
+	{ MODKEY|ControlMask,           XK_l,      x_nexttag_all,  {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
