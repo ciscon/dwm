@@ -202,6 +202,7 @@ static int gettextprop(Window w, Atom atom, char *text, unsigned int size);
 static void grabbuttons(Client *c, int focused);
 static void grabkeys(void);
 static void incnmaster(const Arg *arg);
+static void resettag();
 static void keypress(XEvent *e);
 static void killclient(const Arg *arg);
 static void manage(Window w, XWindowAttributes *wa);
@@ -1138,8 +1139,19 @@ grabkeys(void)
 void
 incnmaster(const Arg *arg)
 {
-	selmon->nmaster = selmon->pertag->nmasters[selmon->pertag->curtag] = MAX(selmon->nmaster + arg->i, 0);
+	if (arg->i == 0) {
+		selmon->nmaster = selmon->pertag->nmasters[selmon->pertag->curtag] = nmaster;
+	} else {
+		selmon->nmaster = selmon->pertag->nmasters[selmon->pertag->curtag] = MAX(selmon->nmaster + arg->i, 0);
+	}
 	arrange(selmon);
+}
+
+void
+resettag() {
+	incnmaster(&(Arg){.i=0});
+	setlayout(&(Arg){.v = &layouts[0]});
+	setmfact(&(Arg){.f=1.0+mfact});
 }
 
 #ifdef XINERAMA
