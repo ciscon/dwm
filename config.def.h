@@ -45,7 +45,9 @@ static const Rule rules[] = {
 	{ "Slack",  NULL,       NULL,       1<<5,       0,           -1},
 	{ "google-chat-electron",  NULL,       NULL,       1<<5,       0,           -1},
 	{ "google-chat-linux",  NULL,       NULL,       1<<5,       0,           -1},
-	{ "Steam",  NULL,       NULL,       1<<4,       0,           -1}
+	{ "Steam",  NULL,       NULL,       1<<4,       0,           -1},
+	{ "steam",  NULL,       NULL,       1<<4,       0,           -1},
+	{ "steamwebhelper",  NULL,       NULL,       1<<4,       0,           -1}
 };
 
 /* layout(s) */
@@ -79,6 +81,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "terminal", NULL };
+static const char *termcmdremote[]  = { "terminal", "-e", "ssh", "davros" };
 static const char *browsercmd[]  = { "browser", NULL };
 static const char *browsercmdincognito[]  = { "browser", "--incognito", "--private-window" };
 static const char *xscreensavercmd[]  = { "xscreensaver-command", "-activate", NULL };
@@ -92,6 +95,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = screenshotcmd} },
 	{ MODKEY|ShiftMask,             XK_g,      spawn,          {.v = browsercmdincognito } },
 	{ MODKEY,                       XK_g,      spawn,          {.v = browsercmd } },
