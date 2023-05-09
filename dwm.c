@@ -551,7 +551,7 @@ cleanup(void)
 
 	if (showsystray) {
 		XUnmapWindow(dpy, systray->win);
-		XDestroyWindow(dpy, systray->win);
+		//XDestroyWindow(dpy, systray->win);
 		free(systray);
 	}
 
